@@ -64,6 +64,10 @@ typedef struct wxAppSubclass
 
     void delete_wx_app_subclass(wxAppSubclass *subclass);
 
+    bool wx_app_subclass_on_init(wxAppSubclass *subclass);
+
+    void wx_app_subclass_set_top_window(wxAppSubclass *subclass, wxWindow *window);
+
 #ifdef __cplusplus
 }
 #endif // __cplusplus

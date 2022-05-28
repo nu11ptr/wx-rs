@@ -11,4 +11,8 @@ public:
 
 DECLARE_APP(HelloWorldApp)
 
+// DECLARE_APP translates to:
+//
+// extern HelloWorldApp& wxGetApp()
+
 #endif // INCLUDED_HELLOWORLDAPP_H

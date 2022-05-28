@@ -16,7 +16,7 @@ bool HelloWorldApp::OnInit()
     wxFrame *frame = new wxFrame((wxFrame *)NULL, -1, _T("Hello wxWidgets World"));
     frame->CreateStatusBar();
     frame->SetStatusText(_T("Hello World"));
-    frame->Show(true);
+    frame->Show(true); // Implemented by wxWindow
     SetTopWindow(frame);
     return true;
 }

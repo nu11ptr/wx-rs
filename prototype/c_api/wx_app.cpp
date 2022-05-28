@@ -21,4 +21,14 @@ extern "C"
     {
         delete subclass;
     }
+
+    bool wx_app_subclass_on_init(wxAppSubclass *subclass)
+    {
+        return subclass->OnInit();
+    }
+
+    void wx_app_subclass_set_top_window(wxAppSubclass *subclass, wxWindow *window)
+    {
+        subclass->SetTopWindow(window);
+    }
 }

@@ -19,7 +19,15 @@ typedef struct wxFrame
 
     wxFrame *create_wx_frame();
 
+    wxFrame *create_wx_frame2(wxWindow *window, wxWindowID id, wxString *title);
+
     void delete_wx_frame(wxFrame *frame);
+
+    wxStatusBar *wx_frame_create_status_bar(wxFrame *frame);
+
+    void wx_frame_set_status_text(wxFrame *frame, wxString* str);
+
+    bool wx_frame_show(wxFrame *frame, bool show);
 
 #ifdef __cplusplus
 }
