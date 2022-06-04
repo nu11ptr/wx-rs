@@ -21,7 +21,7 @@ typedef struct wxStatusBar
 
     wxStatusBar *create_wxStatusBar();
 
-    void destroy_wxStatusBar(wxStatusBar *status_bar);
+    void destroy_wxStatusBar(const wxStatusBar *status_bar);
 
 #ifdef __cplusplus
 }

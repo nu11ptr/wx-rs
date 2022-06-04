@@ -7,12 +7,12 @@ extern "C"
         return new wxFrame();
     }
 
-    wxFrame *create_wxFrame2(wxWindow *window, wxWindowID id, wxString *title)
+    wxFrame *create_wxFrame2(wxWindow *window, wxWindowID id, const wxString *title)
     {
         return new wxFrame(window, id, *title);
     }
 
-    void destroy_wxFrame(wxFrame *frame)
+    void destroy_wxFrame(const wxFrame *frame)
     {
         delete frame;
     }
@@ -22,7 +22,7 @@ extern "C"
         return frame->CreateStatusBar();
     }
 
-    void wxFrame_SetStatusText(wxFrame *frame, wxString *str)
+    void wxFrame_SetStatusText(wxFrame *frame, const wxString *str)
     {
         frame->SetStatusText(*str);
     }

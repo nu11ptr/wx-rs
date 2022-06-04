@@ -7,7 +7,7 @@ extern "C"
         return new wxWindow();
     }
 
-    void destroy_wxWindow(wxWindow *window)
+    void destroy_wxWindow(const wxWindow *window)
     {
         delete window;
     }

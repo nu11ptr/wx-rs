@@ -12,7 +12,7 @@ extern "C"
         return new wxString(str);
     }
 
-    void destroy_wxString(wxString *str)
+    void destroy_wxString(const wxString *str)
     {
         delete str;
     }

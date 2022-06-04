@@ -21,13 +21,13 @@ typedef struct wxFrame
 
     wxFrame *create_wxFrame();
 
-    wxFrame *create_wxFrame2(wxWindow *window, wxWindowID id, wxString *title);
+    wxFrame *create_wxFrame2(wxWindow *window, wxWindowID id, const wxString *title);
 
-    void destroy_wxFrame(wxFrame *frame);
+    void destroy_wxFrame(const wxFrame *frame);
 
     wxStatusBar *wxFrame_CreateStatusBar(wxFrame *frame);
 
-    void wxFrame_SetStatusText(wxFrame *frame, wxString *str);
+    void wxFrame_SetStatusText(wxFrame *frame, const wxString *str);
 
     bool wxFrame_Show(wxFrame *frame, bool show);
 

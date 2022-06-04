@@ -21,7 +21,7 @@ typedef struct wxString wxString;
 
     wxString *create_wxString2(const char *str);
 
-    void destroy_wxString(wxString *str);
+    void destroy_wxString(const wxString *str);
 #ifdef __cplusplus
 }
 #endif // __cplusplus

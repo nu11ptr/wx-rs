@@ -66,7 +66,7 @@ typedef struct wxAppSubclass
 
     wxAppSubclass *create_wxApp_subclass(wxAppVtable *vtable);
 
-    void destroy_wxApp_subclass(wxAppSubclass *subclass);
+    void destroy_wxApp_subclass(const wxAppSubclass *subclass);
 
     bool wxApp_subclass_OnInit(wxAppSubclass *subclass);
 

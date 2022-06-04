@@ -21,7 +21,7 @@ typedef struct wxWindow
 
     wxWindow *create_wxWindow();
 
-    void destroy_wxWindow(wxWindow *window);
+    void destroy_wxWindow(const wxWindow *window);
 
 #ifdef __cplusplus
 }

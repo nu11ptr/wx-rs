@@ -7,7 +7,7 @@ extern "C"
         return new wxStatusBar();
     }
 
-    void destroy_wxStatusBar(wxStatusBar *status_bar)
+    void destroy_wxStatusBar(const wxStatusBar *status_bar)
     {
         delete status_bar;
     }
