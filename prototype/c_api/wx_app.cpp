@@ -31,4 +31,9 @@ extern "C"
     {
         subclass->SetTopWindow(window);
     }
+
+    void wx_app_set_initializer_function(wxAppInitializerFunction fn)
+    {
+        wxApp::SetInitializerFunction(fn);
+    }
 }

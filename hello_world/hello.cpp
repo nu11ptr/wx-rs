@@ -31,6 +31,7 @@ int main(int argc, char **argv)
 // IMPLEMENT_APP(HelloWorldApp) and IMPLEMENT_APP_NO_MAIN(HellowWorldApp)  expands to:
 
 // HelloWorldApp &wxGetApp() { return *static_cast<HelloWorldApp *>(wxApp::GetInstance()); }
+
 // wxAppConsole *wxCreateApp()
 // {
 //     wxAppConsole::CheckBuildOptions(WX_BUILD_OPTIONS_SIGNATURE,

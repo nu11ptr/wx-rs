@@ -11,7 +11,9 @@
 
 extern "C"
 {
-#else  // !__cpluplus
+#else // !__cpluplus
+#include "wx.h"
+
 typedef struct wxFrame
 {
 } wxFrame;
@@ -25,7 +27,7 @@ typedef struct wxFrame
 
     wxStatusBar *wx_frame_create_status_bar(wxFrame *frame);
 
-    void wx_frame_set_status_text(wxFrame *frame, wxString* str);
+    void wx_frame_set_status_text(wxFrame *frame, wxString *str);
 
     bool wx_frame_show(wxFrame *frame, bool show);
 

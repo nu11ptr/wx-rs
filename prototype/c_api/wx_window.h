@@ -11,7 +11,9 @@
 
 extern "C"
 {
-#else  // !__cpluplus
+#else // !__cpluplus
+#include "wx.h"
+
 typedef struct wxWindow
 {
 } wxWindow;

@@ -2,13 +2,18 @@
 
 extern "C"
 {
-    wxString create_wx_string()
+    wxString *create_wx_string()
     {
-        return wxString();
+        return new wxString();
     }
 
-    wxString create_wx_string2(const char *str)
+    wxString *create_wx_string2(const char *str)
     {
-        return wxString(str);
+        return new wxString(str);
+    }
+
+    void delete_wx_string(wxString *str)
+    {
+        delete str;
     }
 }

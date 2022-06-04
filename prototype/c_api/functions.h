@@ -11,10 +11,10 @@
 extern "C"
 {
 #else // !__cplusplus
-#include "types.h"
+#include "wx.h"
 #endif // __cplusplus
 
-    int wx_entry(int &argc, wxChar **argv);
+    int wx_entry(int argc, char **argv);
 
 #ifdef __cplusplus
 }

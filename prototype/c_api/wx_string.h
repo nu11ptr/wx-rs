@@ -11,16 +11,17 @@
 
 extern "C"
 {
-#else  // !__cpluplus
-typedef struct wxString
-{
-} wxString;
+#else // !__cpluplus
+#include "wx.h"
+
+typedef struct wxString wxString;
 #endif // __cplusplus
 
-    wxString create_wx_string();
+    wxString *create_wx_string();
 
-    wxString create_wx_string2(const char *str);
+    wxString *create_wx_string2(const char *str);
 
+    void delete_wx_string(wxString *str);
 #ifdef __cplusplus
 }
 #endif // __cplusplus

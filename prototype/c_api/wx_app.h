@@ -6,8 +6,6 @@
 #ifdef __cplusplus
 extern "C"
 {
-#else  // !__cpluplus
-typedef unsigned char bool;
 #endif // __cplusplus
 
     typedef struct wxAppVtable
@@ -53,7 +51,13 @@ public:
 
 extern "C"
 {
-#else  // !__cpluplus
+#else // !__cpluplus
+#include "wx.h"
+
+typedef struct _wxAppConsole wxAppConsole;
+
+typedef wxAppConsole *(*wxAppInitializerFunction)();
+
 typedef struct wxAppSubclass
 {
     wxAppVtable *vtable;
@@ -67,6 +71,8 @@ typedef struct wxAppSubclass
     bool wx_app_subclass_on_init(wxAppSubclass *subclass);
 
     void wx_app_subclass_set_top_window(wxAppSubclass *subclass, wxWindow *window);
+
+    void wx_app_set_initializer_function(wxAppInitializerFunction fn);
 
 #ifdef __cplusplus
 }
