@@ -2,12 +2,12 @@
 
 extern "C"
 {
-    wxStatusBar *create_wx_status_bar()
+    wxStatusBar *create_wxStatusBar()
     {
         return new wxStatusBar();
     }
 
-    void delete_wx_status_bar(wxStatusBar *status_bar)
+    void destroy_wxStatusBar(wxStatusBar *status_bar)
     {
         delete status_bar;
     }

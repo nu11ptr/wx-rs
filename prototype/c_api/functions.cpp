@@ -2,7 +2,7 @@
 
 extern "C"
 {
-    int wx_entry(int argc, char **argv)
+    int global_wxEntry(int argc, char **argv)
     {
         return wxEntry(argc, argv);
     }

@@ -13,9 +13,9 @@ extern "C"
         bool (*on_init)();
     } wxAppVtable;
 
-    wxAppVtable *create_wx_app_vtable();
+    wxAppVtable *create_wxApp_vtable();
 
-    void delete_wx_app_vtable(wxAppVtable *vtable);
+    void destroy_wxApp_vtable(wxAppVtable *vtable);
 
 #ifdef __cplusplus
 }
@@ -64,15 +64,15 @@ typedef struct wxAppSubclass
 } wxAppSubclass;
 #endif // __cplusplus
 
-    wxAppSubclass *create_wx_app_subclass(wxAppVtable *vtable);
+    wxAppSubclass *create_wxApp_subclass(wxAppVtable *vtable);
 
-    void delete_wx_app_subclass(wxAppSubclass *subclass);
+    void destroy_wxApp_subclass(wxAppSubclass *subclass);
 
-    bool wx_app_subclass_on_init(wxAppSubclass *subclass);
+    bool wxApp_subclass_OnInit(wxAppSubclass *subclass);
 
-    void wx_app_subclass_set_top_window(wxAppSubclass *subclass, wxWindow *window);
+    void wxApp_subclass_SetTopWindow(wxAppSubclass *subclass, wxWindow *window);
 
-    void wx_app_set_initializer_function(wxAppInitializerFunction fn);
+    void wxApp_SetInitializerFunction(wxAppInitializerFunction fn);
 
 #ifdef __cplusplus
 }

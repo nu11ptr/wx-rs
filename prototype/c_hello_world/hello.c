@@ -4,34 +4,34 @@
 
 bool on_init(wxAppSubclass *app)
 {
-    wxString *hello = create_wx_string2("Hello wxWidgets World");
-    wxFrame *frame = create_wx_frame2(NULL, -1, hello);
-    delete_wx_string(hello);
+    wxString *hello = create_wxString2("Hello wxWidgets World");
+    wxFrame *frame = create_wxFrame2(NULL, -1, hello);
+    destroy_wxString(hello);
 
-    wx_frame_create_status_bar(frame);
+    wxFrame_CreateStatusBar(frame);
 
-    wxString *hello_world = create_wx_string2("Hello world");
-    wx_frame_set_status_text(frame, hello_world);
-    delete_wx_string(hello_world);
+    wxString *hello_world = create_wxString2("Hello world");
+    wxFrame_SetStatusText(frame, hello_world);
+    destroy_wxString(hello_world);
 
-    wx_frame_show(frame, true);
-    wx_app_subclass_set_top_window(app, (wxWindow *)frame);
+    wxFrame_Show(frame, true);
+    wxApp_subclass_SetTopWindow(app, (wxWindow *)frame);
     return true;
 }
 
 wxAppSubclass *create_app()
 {
-    wxAppVtable *vtable = create_wx_app_vtable();
+    wxAppVtable *vtable = create_wxApp_vtable();
     vtable->on_init = on_init;
 
-    return create_wx_app_subclass(vtable);
+    return create_wxApp_subclass(vtable);
 }
 
 int main(int argc, char **argv)
 {
-    wx_app_set_initializer_function((wxAppInitializerFunction)create_app);
+    wxApp_SetInitializerFunction((wxAppInitializerFunction)create_app);
 
-    int ret_code = wx_entry(argc, argv);
+    int ret_code = global_wxEntry(argc, argv);
 
     // TODO: How to delete vtable?
     // I suspect app itself is freed by wxwidgets?

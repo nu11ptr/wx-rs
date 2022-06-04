@@ -14,7 +14,7 @@ extern "C"
 #include "wx.h"
 #endif // __cplusplus
 
-    int wx_entry(int argc, char **argv);
+    int global_wxEntry(int argc, char **argv);
 
 #ifdef __cplusplus
 }

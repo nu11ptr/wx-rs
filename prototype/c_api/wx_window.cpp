@@ -2,12 +2,12 @@
 
 extern "C"
 {
-    wxWindow *create_wx_window()
+    wxWindow *create_wxWindow()
     {
         return new wxWindow();
     }
 
-    void delete_wx_window(wxWindow *window)
+    void destroy_wxWindow(wxWindow *window)
     {
         delete window;
     }
