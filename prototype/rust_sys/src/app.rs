@@ -2,7 +2,9 @@ use crate::{bool_, wxWindow};
 
 #[repr(C)]
 pub struct wxAppVtable {
-    pub on_init: Option<unsafe extern "C" fn() -> bool_>,
+    pub on_init: Option<
+        unsafe extern "C" fn(arg1: *mut wxAppSubclass, arg2: *mut std::os::raw::c_void) -> bool_,
+    >,
 }
 
 extern "C" {
@@ -24,10 +26,14 @@ pub type wxAppInitializerFunction = Option<unsafe extern "C" fn() -> *mut wxAppC
 #[repr(C)]
 pub struct wxAppSubclass {
     pub vtable: *mut wxAppVtable,
+    pub meta: *mut std::os::raw::c_void,
 }
 
 extern "C" {
-    pub fn create_wxApp_subclass(vtable: *mut wxAppVtable) -> *mut wxAppSubclass;
+    pub fn create_wxApp_subclass(
+        vtable: *mut wxAppVtable,
+        meta: *mut std::os::raw::c_void,
+    ) -> *mut wxAppSubclass;
 
     pub fn destroy_wxApp_subclass(subclass: *const wxAppSubclass);
 

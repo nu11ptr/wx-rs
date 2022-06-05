@@ -12,9 +12,9 @@ extern "C"
         delete vtable;
     }
 
-    wxAppSubclass *create_wxApp_subclass(wxAppVtable *vtable)
+    wxAppSubclass *create_wxApp_subclass(wxAppVtable *vtable, void *meta)
     {
-        return new wxAppSubclass(vtable);
+        return new wxAppSubclass(vtable, meta);
     }
 
     void destroy_wxApp_subclass(const wxAppSubclass *subclass)

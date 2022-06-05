@@ -2,7 +2,7 @@
 
 #include "hello.h"
 
-bool on_init(wxAppSubclass *app)
+bool on_init(wxAppSubclass *app, void *meta)
 {
     wxString *hello = create_wxString2("Hello wxWidgets World");
     wxFrame *frame = create_wxFrame2(NULL, -1, hello);
@@ -24,7 +24,7 @@ wxAppSubclass *create_app()
     wxAppVtable *vtable = create_wxApp_vtable();
     vtable->on_init = on_init;
 
-    return create_wxApp_subclass(vtable);
+    return create_wxApp_subclass(vtable, NULL);
 }
 
 int main(int argc, char **argv)

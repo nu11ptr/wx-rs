@@ -8,9 +8,12 @@ extern "C"
 {
 #endif // __cplusplus
 
+    // Forward declare
+    typedef struct wxAppSubclass wxAppSubclass;
+
     typedef struct wxAppVtable
     {
-        bool (*on_init)();
+        bool (*on_init)(wxAppSubclass *, void *);
     } wxAppVtable;
 
     wxAppVtable *create_wxApp_vtable();
@@ -32,15 +35,16 @@ class wxAppSubclass : public wxApp
 {
 private:
     wxAppVtable *vtable;
+    void *meta;
 
 public:
-    explicit wxAppSubclass(wxAppVtable *vtable) : vtable{vtable} {}
+    explicit wxAppSubclass(wxAppVtable *vtable, void *meta) : vtable{vtable}, meta{meta} {}
 
     virtual bool OnInit()
     {
         if (vtable->on_init != nullptr)
         {
-            return (*vtable->on_init)();
+            return (*vtable->on_init)(this, meta);
         }
         else
         {
@@ -61,10 +65,11 @@ typedef wxAppConsole *(*wxAppInitializerFunction)();
 typedef struct wxAppSubclass
 {
     wxAppVtable *vtable;
+    void *meta;
 } wxAppSubclass;
 #endif // __cplusplus
 
-    wxAppSubclass *create_wxApp_subclass(wxAppVtable *vtable);
+    wxAppSubclass *create_wxApp_subclass(wxAppVtable *vtable, void *meta);
 
     void destroy_wxApp_subclass(const wxAppSubclass *subclass);
 
