@@ -79,6 +79,8 @@ typedef struct wxAppSubclass
 
     void wxApp_SetInitializerFunction(wxAppInitializerFunction fn);
 
+    void wxApp_SetInstance(wxAppSubclass *subclass);
+
 #ifdef __cplusplus
 }
 #endif // __cplusplus

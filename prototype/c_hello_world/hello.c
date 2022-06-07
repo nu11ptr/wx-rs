@@ -29,7 +29,8 @@ wxAppSubclass *create_app()
 
 int main(int argc, char **argv)
 {
-    wxApp_SetInitializerFunction((wxAppInitializerFunction)create_app);
+    // wxApp_SetInitializerFunction((wxAppInitializerFunction)create_app);
+    wxApp_SetInstance(create_app());
 
     int ret_code = global_wxEntry(argc, argv);
 

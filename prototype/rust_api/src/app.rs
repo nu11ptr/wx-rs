@@ -1,5 +1,7 @@
 use std::{ffi::c_void, mem, ptr};
 
+use crate::IsWindow;
+
 pub struct App<T> {
     app: *mut wx::wxAppSubclass,
     pub bindings: T,
@@ -40,18 +42,32 @@ where
     }
 
     #[inline]
-    pub fn on_init(&mut self) -> bool {
+    pub fn on_init(&self) -> bool {
         unsafe { wx::wxApp_subclass_OnInit(self.app) != 0 }
     }
 
     #[inline]
-    pub fn set_top_window(&mut self /*, window: &mut Window */) {
-        // TODO
+    pub fn set_top_window(&self, window: &dyn IsWindow) {
+        unsafe {
+            wx::wxApp_subclass_SetTopWindow(self.app, window.raw_window());
+        }
     }
 
     #[inline]
-    pub fn set_initializer_function(/* TODO */) {
-        // TODO
+    pub fn set_instance(app: &App<T>) {
+        unsafe {
+            wx::wxApp_SetInstance(app.app);
+        }
+    }
+}
+
+pub fn startup<T>(app: &App<T>)
+where
+    T: CustomAppOverrides + CustomApp<T>,
+{
+    App::set_instance(app);
+    unsafe {
+        wx::global_wxEntry(0, ptr::null::<std::os::raw::c_char>() as *mut _);
     }
 }
 

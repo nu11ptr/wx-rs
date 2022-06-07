@@ -42,4 +42,6 @@ extern "C" {
     pub fn wxApp_subclass_SetTopWindow(subclass: *mut wxAppSubclass, window: *mut wxWindow);
 
     pub fn wxApp_SetInitializerFunction(fn_: wxAppInitializerFunction);
+
+    pub fn wxApp_SetInstance(subclass: *mut wxAppSubclass);
 }

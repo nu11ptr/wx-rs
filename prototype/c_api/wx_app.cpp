@@ -36,4 +36,9 @@ extern "C"
     {
         wxApp::SetInitializerFunction(fn);
     }
+
+    void wxApp_SetInstance(wxAppSubclass *subclass)
+    {
+        wxApp::SetInstance(subclass);
+    }
 }

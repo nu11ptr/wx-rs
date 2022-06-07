@@ -12,6 +12,11 @@ extern "C"
         return new wxString(str);
     }
 
+    wxString *create_wxString3(const char *str, size_t len)
+    {
+        return new wxString(str, len);
+    }
+
     void destroy_wxString(const wxString *str)
     {
         delete str;

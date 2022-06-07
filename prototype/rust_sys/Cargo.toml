@@ -2,5 +2,7 @@
 name = "wx-rs-sys"
 version = "0.1.0"
 edition = "2021"
+links = "wxc"
 
-[dependencies]
+[build-dependencies]
+cmake = "0.1.48"
